@@ -7,9 +7,13 @@ export default {
   theme: {
     extend: {
         backgroundImage: {
-          'sectionone-bg': "url('https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg?cs=srgb&dl=pexels-fotoaibe-1571458.jpg&fm=jpg')",
+          'sectionone-bg': "url('background-opaque.png')",
           'footer-texture': "url('/img/footer-texture.png')",
         },
+
+        fontFamily: {
+          bebas: ['"Bebas Neue"', 'sans-serif'],
+      },
 
         height: {
           '100': '32rem',
