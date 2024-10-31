@@ -39,31 +39,29 @@ function Contact() {
                 </div>
 
                 <div className="bg-stone-800 Contact-Form mt-20 border border-solid border-white p-2 lg:mt-0 lg:-translate-y-1/4">
-                    <form name="message-form" className="white bg-white grid gap-y-4 py-10 px-5 text-xl lg:gap-y-7" onSubmit={handleSubmit}>
+                    <form name="message-form" className="white bg-white grid gap-y-4 py-10 px-5 text-xl lg:gap-y-7" >
                         <h1 className='text-stone-800 font-bold lg:text-3xl'>SEND A MESSAGE</h1>
                         <TextField
                             id="name"
                             name="name"
                             label="YOUR NAME"
                             variant="standard"
-                            value={formData.name}
-                            onChange={handleChange}
+                            
+                            
                         />
                         <TextField
                             id="email"
                             name="email"
                             label="EMAIL"
                             variant="standard"
-                            value={formData.email}
-                            onChange={handleChange}
+                            
+                            
                         />
                         <TextField
                             id="number"
                             name="number"
                             label="PHONE NUMBER"
                             variant="standard"
-                            value={formData.number}
-                            onChange={handleChange}
                         />
                         <TextField
                             id="message"
@@ -72,8 +70,6 @@ function Contact() {
                             variant="standard"
                             multiline
                             rows={5}
-                            value={formData.message}
-                            onChange={handleChange}
                         />
                         <Button
                             type="submit"
