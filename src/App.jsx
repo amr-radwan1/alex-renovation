@@ -1,14 +1,14 @@
 
 import './App.css'
-import Header from './Header-Component/Header'
-import SectionOne from './Section-One-Component/SectionOne'
-import AboutSection from './About-Component/AboutSection'
-import Product from './Product-Component/Product'
-import WorkList from './Work-List-Component/WorkList'
-import Renovation from './Renovation-Component/Renovation'
-import Footer from './Footer-Component/Footer'
-import Contact from './Contact-Component/Contact'
-import Gallery from './Gallery/Gallery'
+import Header from './/components/Header'
+import SectionOne from './/components/SectionOne'
+import AboutSection from './/components/AboutSection'
+import Product from './/components/Product'
+import WorkList from './/components/WorkList'
+import Renovation from './/components/Renovation'
+import Footer from './/components/Footer'
+import Contact from './/components/Contact'
+import Gallery from './/components/Gallery'
 function App() {
  
 

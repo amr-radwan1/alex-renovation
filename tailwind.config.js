@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
         backgroundImage: {
-          'sectionone-bg': "url('background-opaque.png')",
+          'sectionone-bg': "url('/background-opaque.png')",
           'footer-texture': "url('/img/footer-texture.png')",
         },
 
