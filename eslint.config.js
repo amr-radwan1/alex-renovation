@@ -34,5 +34,6 @@ export default [
         { allowConstantExport: true },
       ],
     },
+    "extends": ["eslint:recommended", "next"],
   },
 ]
