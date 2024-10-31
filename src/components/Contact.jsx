@@ -1,48 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from '@mui/material/TextField';
-import { Resend } from 'resend';
 
 function Contact() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        number: '',
-        message: ''
-    });
-    
-    const resend = new Resend('re_Mo9Fzbkp_3CsnZPv24q6DDRuPSsbLjCkj'); // Replace with your actual Resend API key
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-    
-        try {
-            const response = await fetch('http://localhost:5000/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-    
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-    
-            const data = await response.json();
-            alert(data);
-            setFormData({ name: '', email: '', number: '', message: '' }); 
-        } catch (error) {
-            console.error('Error sending email:', error);
-            alert('Failed to send email. Please try again later.');
-        }
-    };
-    
 
     return (
         <div id='Contact' className="bg-stone-800 text-white grid justify-center mt-0 py-20 uppercase">
