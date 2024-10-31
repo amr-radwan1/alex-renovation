@@ -1,7 +1,28 @@
 import Button from "@mui/material/Button";
 import TextField from '@mui/material/TextField';
+import { sendEmail } from '../app/api/sendEmail.ts'; 
 
 function Contact() {
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const formData = {
+            name: event.target.name.value,
+            email: event.target.email.value,
+            number: event.target.number.value,
+            message: event.target.message.value,
+        };
+
+        // Call the send function and handle the response
+        const response = await sendEmail(formData);
+        if (response.error) {
+            // Handle error (e.g., show a notification)
+            console.error('Error sending email:', response.error);
+        } else {
+            // Handle success (e.g., show a success message)
+            console.log('Email sent successfully:', response);
+        }
+    };
 
     return (
         <div id='Contact' className="bg-stone-800 text-white grid justify-center mt-0 py-20 uppercase">
@@ -38,23 +59,19 @@ function Contact() {
                 </div>
 
                 <div className="bg-stone-800 Contact-Form mt-20 border border-solid border-white p-2 lg:mt-0 lg:-translate-y-1/4">
-                    <form name="message-form" className="white bg-white grid gap-y-4 py-10 px-5 text-xl lg:gap-y-7" >
+                    <form name="message-form" className="white bg-white grid gap-y-4 py-10 px-5 text-xl lg:gap-y-7" onSubmit={handleSubmit}>
                         <h1 className='text-stone-800 font-bold lg:text-3xl'>SEND A MESSAGE</h1>
                         <TextField
                             id="name"
                             name="name"
                             label="YOUR NAME"
                             variant="standard"
-                            
-                            
                         />
                         <TextField
                             id="email"
                             name="email"
                             label="EMAIL"
                             variant="standard"
-                            
-                            
                         />
                         <TextField
                             id="number"
@@ -86,7 +103,7 @@ function Contact() {
                                 transition: 'background-color 0.4s ease',
                                 justifySelf: "center",
                                 '&:hover': {
-                                    backgroundColor: 'rgba(221, 44, 0, 0.6)'
+                                    backgroundColor: 'rgba(221, 44, 0, 0.6)',
                                 },
                             }}
                         >
