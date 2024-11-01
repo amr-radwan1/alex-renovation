@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 
 export const dynamic = "force-dynamic";
 
-export async function GET(request: Request) {
+export async function GET() {
     const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
     try {
         const { data, error } = await resend.emails.send({
