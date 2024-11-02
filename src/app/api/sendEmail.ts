@@ -2,7 +2,7 @@
 
 export async function sendEmail(data: { name: string; email: string; phoneNumber: string; message: string }) {
     try {
-        const response = await fetch('http://localhost:3000/api/send', {
+        const response = await fetch('https://alex-renovation.vercel.app/api/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
