@@ -4,25 +4,24 @@ import { sendEmail } from '../app/api/sendEmail.ts';
 
 function Contact() {
     const handleSubmit = async (event) => {
-        event.preventDefault(); // Prevent the default form submission behavior
-
+        event.preventDefault();
+    
         const formData = {
             name: event.target.name.value,
             email: event.target.email.value,
-            number: event.target.number.value,
+            phoneNumber: event.target.number.value,
             message: event.target.message.value,
         };
-
-        // Call the send function and handle the response
+    
         const response = await sendEmail(formData);
+    
         if (response.error) {
-            // Handle error (e.g., show a notification)
-            console.error('Error sending email:', response.error);
+            console.error('Error:', response.error);
         } else {
-            // Handle success (e.g., show a success message)
-            console.log('Email sent successfully:', response);
+            console.log('Email sent successfully:', response.data);
         }
     };
+    
 
     return (
         <div id='Contact' className="bg-stone-800 text-white grid justify-center mt-0 py-20 uppercase">

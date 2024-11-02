@@ -1,26 +1,33 @@
 import { EmailTemplate } from '../../../components/EmailTemplate';
 import { Resend } from 'resend';
 
-
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-    const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+export async function POST(req: Request) {
+    const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY as string);
     try {
-        const { data, error } = await resend.emails.send({
-            from: 'Acme <onboarding@resend.dev>',
-            to: ['amrradwan2006@gmail.com'],
-            subject: 'Hello world',
-            react: EmailTemplate({ firstName: 'Amr', message: 'Thank you for signing up!' }), // Pass the message
-          });
-          
+        const { name, email, phoneNumber, message } = await req.json();
 
-        if (error) {
-        return Response.json({ error }, { status: 500 });
+        const emailData = await resend.emails.send({
+            from: 'Acme <onboarding@resend.dev>',
+            to: 'amrradwan2006@gmail.com',
+            subject: `Message from ${name}`,
+            react: EmailTemplate({
+                firstName: name,
+                email,
+                phoneNumber,
+                message,
+            }),
+        });
+
+        if (emailData.error) {
+            console.error('Resend API Error:', emailData.error);
+            return new Response(JSON.stringify({ error: emailData.error }), { status: 500 });
         }
 
-        return Response.json(data);
+        return new Response(JSON.stringify(emailData), { status: 200 });
     } catch (error) {
-        return Response.json({ error }, { status: 500 });
+        console.error('Unexpected Error:', error);
+        return new Response(JSON.stringify({ error: 'Failed to send email' }), { status: 500 });
     }
 }
