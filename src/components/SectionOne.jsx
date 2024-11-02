@@ -5,9 +5,9 @@ function SectionOne() {
         <>
             <section className="bg-sectionone-bg bg-cover bg-center h-[60vh] text-white flex items-start justify-start text-left lg:mt-24">
                 <div className="section-Content flex flex-col pl-10 lg:pl-40 pt-10 uppercase">
-                    <h2 className="text-[90px] font-bebas m-0 leading-none">ALEX</h2>
-                    <h1 className="text-[60px] font-bebas mt-0 leading-tight">HOME RENOVATIONS</h1>
-                    <p className="text-[33px] font-bebas mb-7 mt-2">20+ Years Serving — all across the GTA</p>
+                    <h2 className="text-[6.7rem] xl:text-[8rem] font-bebas m-0 leading-none">ALEX</h2>
+                    <h1 className="text-[3.7rem] xl:text-[5rem] font-bebas mt-0 leading-tight">HOME RENOVATIONS</h1>
+                    <p className="text-[2.2rem] xl:text-[3.5rem] font-bebas mb-7 mt-2">20+ Years Serving — all across the GTA</p>
                     <Button
                         variant="contained"
                         sx={{
